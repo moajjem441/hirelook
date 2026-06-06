@@ -7,7 +7,7 @@ function Navbar() {
 
   return (
     <div className="fixed top-4 left-0 right-0 z-50 px-4">
-      <nav className="mx-auto flex max-w-5xl flex-col rounded-2xl border border-white/10 bg-[#1a1616]/80 px-6 py-3 backdrop-blur-md shadow-xl md:flex-row md:items-center md:justify-between">
+      <nav className="mx-auto flex max-w-11/12 flex-col rounded-2xl border border-white/10 bg-[#1a1616]/80 px-6 py-3 backdrop-blur-md shadow-xl md:flex-row md:items-center md:justify-between">
         
         {/* Logo & Mobile Toggle */}
         <div className="flex items-center justify-between">
