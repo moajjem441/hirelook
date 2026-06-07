@@ -35,7 +35,7 @@ const StatsSection = () => {
                         return (
                             <Card
                                 key={index}
-                                className="bg-[#141414]/80 border border-white/5 p-8 min-h-[220px] flex flex-col justify-between backdrop-blur-sm transition-transform hover:-translate-y-2 duration-300"
+                                className="bg-[#141414]/30 border border-white/5 p-8 min-h-[220px] flex flex-col justify-between backdrop-blur-sm transition-transform hover:-translate-y-2 duration-300"
                             >
                                 <IconComponent className="text-gray-500 text-3xl mb-6" />
                                 <div>
