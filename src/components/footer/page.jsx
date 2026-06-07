@@ -1,65 +1,67 @@
 import React from 'react';
+import { Button, Icon } from '@gravity-ui/uikit';
+import { LogoFacebook, LogoGithub, LogoLinkedin } from '@gravity-ui/icons';
 
 const Footer = () => {
-    return (
-        <div>
-            <footer class="bg-[#0a0a0a] text-gray-400 py-16 px-6">
-  <div class="max-w-11/12 mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
-    
-    <div class="col-span-1">
-      <div class="flex items-center mb-4">
-        <span class="text-xl font-bold text-white">hire</span>
-        <span class="text-xl font-bold text-blue-500">loop</span>
-      </div>
-      <p class="text-sm leading-relaxed mb-6">
-        The AI-native career platform. Built for people who take their work seriously.
-      </p>
-      <div class="flex gap-3">
-        <a href="#" class="w-8 h-8 rounded bg-[#1a1a1a] flex items-center justify-center hover:bg-gray-700 transition">F</a>
-        <a href="#" class="w-8 h-8 rounded bg-[#1a1a1a] flex items-center justify-center hover:bg-gray-700 transition">P</a>
-        <a href="#" class="w-8 h-8 rounded bg-[#1a1a1a] flex items-center justify-center hover:bg-gray-700 transition">in</a>
-      </div>
-    </div>
+  return (
+    // Same background as your navbar
+    <footer className="bg-[#0a0a0a] text-gray-400 py-16 px-6">
+      {/* max-w-5xl matches the navbar structure provided earlier */}
+      <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-4 gap-12">
 
-    <div>
-      <h3 class="text-white font-medium mb-6">Product</h3>
-      <ul class="space-y-4 text-sm">
-        <li><a href="#" class="hover:text-white transition">Job discovery</a></li>
-        <li><a href="#" class="hover:text-white transition">Worker AI</a></li>
-        <li><a href="#" class="hover:text-white transition">Companies</a></li>
-        <li><a href="#" class="hover:text-white transition">Salary data</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <h3 class="text-white font-medium mb-6">Navigations</h3>
-      <ul class="space-y-4 text-sm">
-        <li><a href="#" class="hover:text-white transition">Help center</a></li>
-        <li><a href="#" class="hover:text-white transition">Career library</a></li>
-        <li><a href="#" class="hover:text-white transition">Contact</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <h3 class="text-white font-medium mb-6">Resources</h3>
-      <ul class="space-y-4 text-sm">
-        <li><a href="#" class="hover:text-white transition">Brand Guideline</a></li>
-        <li><a href="#" class="hover:text-white transition">Newsroom</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between text-xs text-gray-500">
-    <p>© 2024 — Programming Hero</p>
-    <div class="flex gap-6 mt-4 md:mt-0">
-      <a href="#" class="hover:text-white transition">Terms & Policy</a>
-      <a href="#" class="hover:text-white transition">Privacy Guideline</a>
-    </div>
-  </div>
-</footer>
-            
+        {/* Branding Column */}
+        <div className="col-span-1">
+          <div className="flex items-center mb-4">
+            <span className="text-xl font-bold text-white">hire</span>
+            <span className="text-xl font-bold text-[#5c53fe]">loop</span>
+          </div>
+          <p className="text-sm leading-relaxed mb-6 text-gray-500">
+            The AI-native career platform. Built for people who take their work seriously.
+          </p>
+          
+          <div className="flex gap-3">
+            {[LogoFacebook, LogoGithub, LogoLinkedin].map((item, idx) => (
+              <Button 
+                key={idx}
+                view="flat" 
+                className="w-9 h-9 rounded-md bg-[#1a1a1a] hover:bg-[#2a2a2a] flex items-center justify-center text-gray-400"
+                href="#"
+              >
+                <Icon data={item} size={18} />
+              </Button>
+            ))}
+          </div>
         </div>
-    );
+
+        {/* Links Columns - Reusable styles */}
+        {[
+          { title: "Product", links: ["Job discovery", "Worker AI", "Companies", "Salary data"] },
+          { title: "Navigations", links: ["Help center", "Career library", "Contact"] },
+          { title: "Resources", links: ["Brand Guideline", "Newsroom"] }
+        ].map((section) => (
+          <div key={section.title}>
+            <h3 className="text-[#5c53fe] font-semibold mb-6 text-sm">{section.title}</h3>
+            <ul className="space-y-4 text-sm">
+              {section.links.map((link) => (
+                <li key={link}>
+                  <a href="#" className="hover:text-white transition-colors duration-200">{link}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      {/* Bottom Copyright Bar */}
+      <div className="mx-auto max-w-5xl mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between text-xs text-gray-500">
+        <p>© 2024 — Programming Hero</p>
+        <div className="flex gap-6 mt-4 md:mt-0">
+          <a href="#" className="hover:text-white transition">Terms & Policy</a>
+          <a href="#" className="hover:text-white transition">Privacy Guideline</a>
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
