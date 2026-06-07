@@ -13,7 +13,7 @@ function Navbar() {
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <span className="text-xl font-bold text-white">hire</span>
-            <span className="text-xl font-bold text-blue-500">loop</span>
+            <span className="text-xl font-bold text-[#5c53fe]">loop</span>
           </div>
           
           <button 
@@ -35,7 +35,7 @@ function Navbar() {
           <div className="hidden md:block h-4 w-[1px] bg-gray-700" />
           
           <div className="flex flex-col md:flex-row gap-4 md:items-center pt-4 md:pt-0 border-t md:border-none border-white/10">
-            <Link href="#" className="text-sm text-blue-400 hover:text-blue-300">Sign In</Link>
+            <Link href="#" className="text-sm text-[#5c53fe] hover:text-blue-300">Sign In</Link>
             <Button 
               className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium rounded-xl"
               size="sm"
