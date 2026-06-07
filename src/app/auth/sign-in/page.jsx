@@ -2,11 +2,11 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button, Input } from "@heroui/react";
-import { authClient } from "@/lib/auth-client"; // Adjust path to your auth client
+import { authClient } from "@/lib/auth-client"; 
 
-const SignUpPage = () => {
+const SignInPage = () => {
   const router = useRouter();
-  const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+  const [formData, setFormData] = useState({ email: '', password: '' });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -15,15 +15,14 @@ const SignUpPage = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleRegister = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
 
-    const { data, error: authError } = await authClient.signUp.email({
+    const { error: authError } = await authClient.signIn.email({
       email: formData.email,
       password: formData.password,
-      name: formData.name,
     });
 
     if (authError) {
@@ -32,14 +31,15 @@ const SignUpPage = () => {
       return;
     }
 
-    // Success: Redirect to sign-in page
-    router.push('/auth/sign-in');
+    // লগ-ইন সফল হলে হোমপেজে পাঠিয়ে দিন
+    router.push('/');
+    router.refresh(); // নতুন সেশন লোড করার জন্য এটি ভালো প্র্যাকটিস
   };
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center p-6">
       <div className="w-full max-w-md bg-[#141414] border border-white/5 p-8 rounded-2xl shadow-xl">
-        <h2 className="text-2xl font-bold text-white mb-6 text-center">Create an Account</h2>
+        <h2 className="text-2xl font-bold text-white mb-6 text-center">Sign In</h2>
         
         {error && (
           <div className="bg-red-500/10 border border-red-500/20 text-red-500 p-3 rounded-lg text-sm mb-4">
@@ -47,16 +47,7 @@ const SignUpPage = () => {
           </div>
         )}
 
-        <form onSubmit={handleRegister} className="flex flex-col gap-4">
-          <Input
-            name="name"
-            label="Full Name"
-            placeholder="Enter your name"
-            variant="bordered"
-            onChange={handleInputChange}
-            required
-            className={{ input: "text-white", label: "text-gray-400" }}
-          />
+        <form onSubmit={handleLogin} className="flex flex-col gap-4">
           <Input
             name="email"
             type="email"
@@ -71,7 +62,7 @@ const SignUpPage = () => {
             name="password"
             type="password"
             label="Password"
-            placeholder="Create a password"
+            placeholder="Enter your password"
             variant="bordered"
             onChange={handleInputChange}
             required
@@ -83,17 +74,17 @@ const SignUpPage = () => {
             isLoading={loading}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium mt-4"
           >
-            Sign Up
+            Sign In
           </Button>
         </form>
 
         <p className="text-gray-400 text-sm text-center mt-6">
-          Already have an account?{' '}
-          <a href="/auth/sign-in" className="text-blue-500 hover:underline">Sign In</a>
+          Don't have an account?{' '}
+          <a href="/auth/sign-up" className="text-blue-500 hover:underline">Sign Up</a>
         </p>
       </div>
     </div>
   );
 };
 
-export default SignUpPage;
+export default SignInPage;
