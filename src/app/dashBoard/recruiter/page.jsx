@@ -5,6 +5,7 @@ import React from 'react';
 import StatsGrid from './StatsGrid';
 import { IoDocumentTextOutline, IoPeopleOutline, IoFlashOutline, IoCheckmarkCircleOutline } from "react-icons/io5";
 
+
 const myData = [
   { label: "Total Job Posts", value: "48", icon: IoDocumentTextOutline },
   { label: "Total Applicants", value: "1,284", icon: IoPeopleOutline },
