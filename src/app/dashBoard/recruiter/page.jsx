@@ -1,8 +1,9 @@
 'use client'
+import StatsGrid from '@/components/dashBoard/StatsGrid';
 import { useSession } from '@/lib/auth-client';
 import React from 'react';
 
-import StatsGrid from './StatsGrid';
+
 import { IoDocumentTextOutline, IoPeopleOutline, IoFlashOutline, IoCheckmarkCircleOutline } from "react-icons/io5";
 
 
