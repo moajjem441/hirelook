@@ -2,11 +2,12 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button, Input } from "@heroui/react";
-import { authClient } from "@/lib/auth-client"; // Adjust path to your auth client
+import { authClient } from "@/lib/auth-client"; 
+import {Description, Label, Radio, RadioGroup} from "@heroui/react";
 
 const SignUpPage = () => {
   const router = useRouter();
-  const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', password: '',role:"seeker" });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -24,6 +25,8 @@ const SignUpPage = () => {
       email: formData.email,
       password: formData.password,
       name: formData.name,
+      role:formData.role,
+      
     });
 
     if (authError) {
@@ -77,6 +80,37 @@ const SignUpPage = () => {
             required
             className={{ input: "text-white", label: "text-gray-400" }}
           />
+
+
+          {/* role section  */}
+
+           <div className="flex flex-col gap-4">
+      <Label>Subscription plan</Label>
+      <RadioGroup
+      onChange={(value)=>setFormData((prev)=>({...prev,role:value}))}
+      defaultValue="seeker" name="seeker" orientation="horizontal">
+        <Radio selected name ="seeker" value="seeker" >
+          <Radio.Control>
+            <Radio.Indicator />
+          </Radio.Control>
+          <Radio.Content>
+            <Label>Job Seeker</Label>
+            
+          </Radio.Content>
+        </Radio>
+       
+        <Radio name="recruiter" value="recruiter" >
+          <Radio.Control>
+            <Radio.Indicator />
+          </Radio.Control>
+          <Radio.Content>
+            <Label>Recruiter</Label>
+            
+          </Radio.Content>
+        </Radio>
+      </RadioGroup>
+    </div>
+
           
           <Button 
             type="submit" 

@@ -44,7 +44,9 @@ function Navbar() {
           
           <div className="flex flex-col md:flex-row gap-4 md:items-center pt-4 md:pt-0 border-t md:border-none border-white/10">
             {session ? (
-              // ইউজার লগ-ইন থাকলে Sign Out দেখাবে
+              <>
+              <p className="font-bold">Hi ! {session?.user?.name}</p>
+             
               <Button 
                 variant="flat"
                 className="text-sm text-red-400 hover:text-red-300 bg-transparent"
@@ -52,6 +54,9 @@ function Navbar() {
               >
                 Sign Out
               </Button>
+
+              </>
+              
             ) : (
               // ইউজার লগ-ইন না থাকলে Sign In দেখাবে
               <>
