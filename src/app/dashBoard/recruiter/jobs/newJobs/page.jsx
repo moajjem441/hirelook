@@ -227,6 +227,7 @@ const NewJobPage = () => {
                   <Input name="maxSalary" placeholder="Max" variant="bordered" className="w-1/3" className={{ input: "text-white", inputWrapper: "bg-gray-800/50 border-gray-700" }} />
                 </div>
               </div>
+              
 
               {/* Location */}
               <div>
