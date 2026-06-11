@@ -143,7 +143,7 @@ const NewJobPage = () => {
                   isRequired
                   isInvalid={!!errors.title}
                   errorMessage={errors.title}
-                  classNames={{
+                  className={{
                     input: "text-white",
                     inputWrapper: "bg-gray-800/50 border-gray-700 hover:border-gray-500 focus-within:border-blue-500 transition-all"
                   }}
@@ -223,8 +223,8 @@ const NewJobPage = () => {
                       ))}
                     </select>
                   </div>
-                  <Input name="minSalary" placeholder="Min" variant="bordered" className="w-1/3" classNames={{ input: "text-white", inputWrapper: "bg-gray-800/50 border-gray-700" }} />
-                  <Input name="maxSalary" placeholder="Max" variant="bordered" className="w-1/3" classNames={{ input: "text-white", inputWrapper: "bg-gray-800/50 border-gray-700" }} />
+                  <Input name="minSalary" placeholder="Min" variant="bordered" className="w-1/3" className={{ input: "text-white", inputWrapper: "bg-gray-800/50 border-gray-700" }} />
+                  <Input name="maxSalary" placeholder="Max" variant="bordered" className="w-1/3" className={{ input: "text-white", inputWrapper: "bg-gray-800/50 border-gray-700" }} />
                 </div>
               </div>
 
@@ -232,8 +232,8 @@ const NewJobPage = () => {
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">Location</label>
                 <div className="flex gap-3">
-                  <Input name="city" placeholder="City" variant="bordered" className="w-1/2" isDisabled={remoteEnabled} classNames={{ input: "text-white", inputWrapper: "bg-gray-800/50 border-gray-700" }} />
-                  <Input name="country" placeholder="Country" variant="bordered" className="w-1/2" isDisabled={remoteEnabled} classNames={{ input: "text-white", inputWrapper: "bg-gray-800/50 border-gray-700" }} />
+                  <Input name="city" placeholder="City" variant="bordered" className="w-1/2" isDisabled={remoteEnabled} className={{ input: "text-white", inputWrapper: "bg-gray-800/50 border-gray-700" }} />
+                  <Input name="country" placeholder="Country" variant="bordered" className="w-1/2" isDisabled={remoteEnabled} className={{ input: "text-white", inputWrapper: "bg-gray-800/50 border-gray-700" }} />
                 </div>
                 <div className="flex items-center justify-between mt-3">
                   <div className="flex flex-col">
@@ -257,7 +257,7 @@ const NewJobPage = () => {
                   isRequired
                   isInvalid={!!errors.deadline}
                   errorMessage={errors.deadline}
-                  classNames={{
+                  className={{
                     input: "text-white [color-scheme:dark]",
                     inputWrapper: "bg-gray-800/50 border-gray-700 hover:border-gray-500 focus-within:border-blue-500"
                   }}
