@@ -140,8 +140,8 @@ const NewJobPage = () => {
                   name="title"
                   placeholder="e.g. Senior Frontend Developer"
                   variant="bordered"
-                  isRequired
-                  isInvalid={!!errors.title}
+                  required
+                   isinvalid={!!errors.title ? "true" : "false"}
                   errorMessage={errors.title}
                   className={{
                     input: "text-white",
@@ -232,8 +232,8 @@ const NewJobPage = () => {
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">Location</label>
                 <div className="flex gap-3">
-                  <Input name="city" placeholder="City" variant="bordered" className="w-1/2" isDisabled={remoteEnabled} className={{ input: "text-white", inputWrapper: "bg-gray-800/50 border-gray-700" }} />
-                  <Input name="country" placeholder="Country" variant="bordered" className="w-1/2" isDisabled={remoteEnabled} className={{ input: "text-white", inputWrapper: "bg-gray-800/50 border-gray-700" }} />
+                  <Input name="city" placeholder="City" variant="bordered" className="w-1/2" disabled={remoteEnabled} className={{ input: "text-white", inputWrapper: "bg-gray-800/50 border-gray-700" }} />
+                  <Input name="country" placeholder="Country" variant="bordered" className="w-1/2" disabled={remoteEnabled} className={{ input: "text-white", inputWrapper: "bg-gray-800/50 border-gray-700" }} />
                 </div>
                 <div className="flex items-center justify-between mt-3">
                   <div className="flex flex-col">
@@ -254,8 +254,8 @@ const NewJobPage = () => {
                   name="deadline"
                   type="date"
                   variant="bordered"
-                  isRequired
-                  isInvalid={!!errors.deadline}
+                  required
+                   isinvalid={!!errors.title ? "true" : "false"}
                   errorMessage={errors.deadline}
                   className={{
                     input: "text-white [color-scheme:dark]",
@@ -331,7 +331,7 @@ const NewJobPage = () => {
         {/* Footer Buttons */}
         <div className="flex justify-end gap-4">
           <Button type="reset" variant="flat" className="bg-gray-800/50 text-gray-300 border border-gray-700 hover:bg-gray-800 hover:text-white rounded-xl px-6 transition-all">Cancel</Button>
-          <Button type="submit" color="primary" isDisabled={!canPostJob} className={`bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold rounded-xl px-8 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:scale-105 transition-all duration-200 ${!canPostJob && 'opacity-50 cursor-not-allowed'}`}>Publish Job</Button>
+          <Button type="submit" color="primary" disabled={!canPostJob} className={`bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold rounded-xl px-8 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:scale-105 transition-all duration-200 ${!canPostJob && 'opacity-50 cursor-not-allowed'}`}>Publish Job</Button>
         </div>
       </Form>
     </div>
