@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { Form, Card, Input, Button, Switch, Label } from "@heroui/react";
+import { createJob } from "@/lib/actions/jobs";
+import toast from 'react-hot-toast';
 
 // Mock company data
 const mockCompany = {
@@ -41,7 +43,7 @@ const NewJobPage = () => {
     return newErrors;
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (!canPostJob) {
       alert(`Cannot post job. Your ${company.plan} plan allows max ${company.maxJobs} active jobs.`);
@@ -65,7 +67,16 @@ const NewJobPage = () => {
       status: "active",
     };
     console.log("Job posted:", jobData);
-    alert("Job posted successfully!");
+    // alert("Job posted successfully!");
+
+
+   const res = await createJob(jobData)
+
+    if(res.insertedId){
+      toast.success("Job posted successfully!");
+      e.target.reset();
+      setRemoteEnabled(false)
+    }
   };
 
   // Job type options
@@ -227,7 +238,7 @@ const NewJobPage = () => {
                   <Input name="maxSalary" placeholder="Max" variant="bordered" className="w-1/3" className={{ input: "text-white", inputWrapper: "bg-gray-800/50 border-gray-700" }} />
                 </div>
               </div>
-              
+
 
               {/* Location */}
               <div>
