@@ -20,6 +20,8 @@ const NewJobPage = () => {
   const [remoteEnabled, setRemoteEnabled] = useState(false);
   const [currency, setCurrency] = useState("USD");
   const [company] = useState(mockCompany);
+
+  const localHost=process.env.BETTER_AUTH_URL;
   
   // Validation error states
   const [errors, setErrors] = useState({
@@ -77,7 +79,7 @@ const NewJobPage = () => {
       toast.success("Job posted successfully!");
       e.target.reset();
       setRemoteEnabled(false)
-      redirect(`http://localhost:3000/dashBoard/recruiter/jobs`)
+      redirect(`${localHost}/dashBoard/recruiter/jobs`)
     }
   };
 
