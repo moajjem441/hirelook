@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Form, Card, Input, Button, Switch, Label } from "@heroui/react";
 import { createJob } from "@/lib/actions/jobs";
 import toast from 'react-hot-toast';
+import { redirect } from "next/navigation";
 
 // Mock company data
 const mockCompany = {
@@ -76,6 +77,7 @@ const NewJobPage = () => {
       toast.success("Job posted successfully!");
       e.target.reset();
       setRemoteEnabled(false)
+      redirect(`http://localhost:3000/dashBoard/recruiter/jobs`)
     }
   };
 
