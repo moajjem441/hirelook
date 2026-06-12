@@ -39,21 +39,23 @@ export default function JobsTable({ jobs }) {
                                         {job.status}
                                     </Chip>
                                 </Table.Cell>
+
                                 <Table.Cell>
-  <div className="flex gap-2">
-    <Button isIconOnly size="sm" color="primary" variant="light">
-      <FaEye />
-    </Button>
+                                    <div className="flex gap-2">
+                                        <Button isIconOnly size="sm" color="primary" variant="light"  className="text-green-500">
+                                            <FaEye />
+                                        </Button>
 
-    <Button isIconOnly size="sm" color="success" variant="light">
-      <FaEdit />
-    </Button>
+                                        <Button isIconOnly size="sm" color="success" variant="light"  className="text-green-500">
+                                            <FaEdit />
+                                        </Button>
 
-    <Button isIconOnly size="sm" color="danger" variant="light">
-      <FaTrash />
-    </Button>
-  </div>
-</Table.Cell>
+                                        <Button isIconOnly size="sm" color="danger" variant="light" className="text-red-500">
+                                            <FaTrash />
+                                        </Button>
+                                    </div>
+                                </Table.Cell>
+
                             </Table.Row>
                         ))}
                     </Table.Body>
